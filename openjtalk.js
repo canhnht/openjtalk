@@ -65,8 +65,9 @@ OpenJTalk.prototype = {
 	},
 
 	// exec から open_jtalk を実行して wav ファイルを作る
-	_makeWav : function (str, pitch, callback) {
-		var wavFileName = uuid() + '.wav';
+	_makeWav : function (str, fileName, pitch, callback) {
+		var wavFileName = !!fileName ? fileName : uuid();
+		wavFileName += '.mp3';
 
 		var ojtCmd = this.openjtalk_bin;
 		var options = {
